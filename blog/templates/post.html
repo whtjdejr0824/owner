@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2>블로그입니다.</h2>
+{% for bookmark in object_list %}
+<li>
+    {{ bookmark.title }}
+</li>
+{% endfor %}
+</body>
+</html>

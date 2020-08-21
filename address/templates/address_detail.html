@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2>상세주소록</h2>
+<br>
+<ul>
+    {% for address in object_list %}
+    <li><a href ="{{object.address}}">{{object.address}}</a></li>
+</ul>
+{% endfor %}
+</body>
+</html>
