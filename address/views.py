@@ -6,7 +6,6 @@ from address.models import Information
 class AddressView(ListView):
     template_name = 'information.html'
     model = Information
-    context_object_name = 'Address'
 
 class AddressViewDK(DetailView):
     template_name = 'address_detail.html'

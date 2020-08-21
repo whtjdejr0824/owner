@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'blog.apps.BlogConfig',
     'address.apps.AddressConfig',
+    'board.apps.BoardConfig',
 
 
 ]
