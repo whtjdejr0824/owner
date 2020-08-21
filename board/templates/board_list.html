@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>게시판</title>
+</head>
+<body>
+<h2>게 시 판</h2>
+<br>
+<table>
+    <thead>
+        <tr>
+            <td>이름</td>
+            <td>제목</td>
+            <td>내용</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            {% for board in object_list %}
+            <td><a href ="{% url 'board:board' %}">{{board.name}}</a></td>
+            <td><a href ="{% url 'board:board' %}">{{board.title}}</a></td>
+            <td><a href ="{% url 'board:board' %}">{{board.content}}</a></td>
+            {% endfor %}
+        </tr>
+    </tbody>
+</table>
+</body>
+</html>
