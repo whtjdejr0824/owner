@@ -9,21 +9,57 @@
 <br>
 <table>
     <thead>
-        <tr>
-            <td>이름</td>
-            <td>제목</td>
-            <td>내용</td>
-        </tr>
+    <tr>
+        <td>이름</td>
+        <td>제목</td>
+        <td>내용</td>
+    </tr>
     </thead>
     <tbody>
-        <tr>
-            {% for board in object_list %}
-            <td><a href ="{% url 'board:board' %}">{{board.name}}</a></td>
-            <td><a href ="{% url 'board:board' %}">{{board.title}}</a></td>
-            <td><a href ="{% url 'board:board' %}">{{board.content}}</a></td>
-            {% endfor %}
-        </tr>
+    <tr>
+        {% for board in object_list %}
+        <td><a href="{{post.get_absolute_url}}">{{board.name}}</a></td>
+        <td><a href="{{post.get_absolute_url}}">{{board.title}}</a></td>
+        <td><a href="{{post.get_absolute_url}}">{{board.content}}</a></td>
+
+    </tr>
+    {{board.modify_dt|date:"N d, Y"}}
+
+    <p>{{board.description}}</p>
+{% endfor %}
+    <div>
+        <span>
+            {% if page_obj.has_previous %}
+            <a href="?page={{page_obj.previous_page_number}}">Prev</a>
+            {% endif %}
+            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages}}{% if page_obj.has_next %}
+            <a href="?page={{page_obj.next_page_number}}">Next</a>
+            {% endif %}
+        </span>
+    </div>
+    <br>
+
     </tbody>
 </table>
 </body>
 </html>
+
+<!--<h1>Blog List</h1>-->
+<!--<br>-->
+<!--{%for board in boards%}-->
+<!--    <h3><a href="{{post.get_absolute_url}}">{{board.title}} {{board.name}} </a></h3>-->
+<!--    {{board.modify_dt|date:"N d, Y"}}-->
+<!--    <p>{{board.description}}</p>-->
+<!--{% endfor %}-->
+<!--<br>-->
+<!--<div>-->
+<!--    <span>-->
+<!--        {% if page_obj.has_previous %}-->
+<!--        <a href="?page={{page_obj.previous_page_number}}">Prev</a>-->
+<!--        {% endif %}-->
+
+<!--        Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages}}{% if page_obj.has_next %}-->
+<!--        <a href="?page={{page_obj.next_page_number}}">Next</a>-->
+<!--        {% endif %}-->
+<!--    </span>-->
+<!--</div>-->

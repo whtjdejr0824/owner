@@ -1,10 +1,20 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <title>{{board.title}}</title>
-</head>
-<body>
+<h2>{{object.title}}</h2>
 
-</body>
-</html>
+<p>
+    {%if object.get_previous %}
+    <a href="{{object.get_previous.get_absolute_url}}"
+       title="이전 글">prev</a>
+    {%endif%}
+
+    {%if object.get_next %}
+    <a href="{{object.get_next.get_absolute_url}}"
+       title="다음 글">next</a>
+    {%endif%}
+</p>
+
+<p>{{object.modify_dt | date:"j F Y"}}</p>
+<br>
+
+<div>
+    {{object.content | linebreaks}}
+</div>
