@@ -1,20 +1,8 @@
-<h2>{{object.title}}</h2>
+ <h1>제목 : {{details.title}}</h1>
 
-<p>
-    {%if object.get_previous %}
-    <a href="{{object.get_previous.get_absolute_url}}"
-       title="이전 글">prev</a>
-    {%endif%}
+ <h3>작성자 :{{object.name}}</h3>
+ <p>
+     {{object.content}}
+ </p>
 
-    {%if object.get_next %}
-    <a href="{{object.get_next.get_absolute_url}}"
-       title="다음 글">next</a>
-    {%endif%}
-</p>
-
-<p>{{object.modify_dt | date:"j F Y"}}</p>
-<br>
-
-<div>
-    {{object.content | linebreaks}}
-</div>
+<a href="{% url 'board:board' %}"><button>목록보기</button></a>

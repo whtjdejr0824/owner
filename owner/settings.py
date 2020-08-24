@@ -41,8 +41,6 @@ INSTALLED_APPS = [
     'blog.apps.BlogConfig',
     'address.apps.AddressConfig',
     'board.apps.BoardConfig',
-
-
 ]
 
 MIDDLEWARE = [
@@ -89,7 +87,6 @@ DATABASES = {
       'PASSWORD': '1234'            # 비밀번호
     }
 }
-
 
 
 # Password validation
