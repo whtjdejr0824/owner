@@ -34,12 +34,18 @@ class BoardCreateView(CreateView):
         return super().form_valid(form)
 
 
-class BookmarkUpdateView(UpdateView):
+class BoardUpdateView(UpdateView):
     model = BoardLI
     fields = ['name', 'title', 'content']  # 폼 모델에 사용할 필드  폼 모델 자동 생성
     success_url = reverse_lazy('board:board')
 
 
-class BookmarkDeleteView(DeleteView):
+class BoardDeleteView(DeleteView):
     fields = ['name', 'title', 'content']  # 폼 모델에 사용할 필드  폼 모델 자동 생성
     success_url = reverse_lazy('board:board')
+
+
+# class BoardChangeLV(LoginRequiredMixin, ListView):
+#     template_name = 'board/board_change_list.html'
+#     def get_queryset(self):
+#         return Board.objects.filter(owner=self.request.user)
