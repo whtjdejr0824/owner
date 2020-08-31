@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.views.generic import TemplateView, ListView, DetailView
-from board.models import BoardLI
+from board.models import BoardLI, models
 from django.views.generic import ListView, DetailView
 from django.views.generic.dates import ArchiveIndexView, YearArchiveView, MonthArchiveView, DayArchiveView, \
     TodayArchiveView
@@ -38,11 +38,13 @@ class BoardUpdateView(UpdateView):
     model = BoardLI
     fields = ['name', 'title', 'content']  # 폼 모델에 사용할 필드  폼 모델 자동 생성
     success_url = reverse_lazy('board:board')
+    template_name = 'board_form.html'
 
 
 class BoardDeleteView(DeleteView):
-    fields = ['name', 'title', 'content']  # 폼 모델에 사용할 필드  폼 모델 자동 생성
+    model = BoardLI
     success_url = reverse_lazy('board:board')
+    template_name = 'board_delete.html'
 
 
 # class BoardChangeLV(LoginRequiredMixin, ListView):

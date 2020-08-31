@@ -1,9 +1,13 @@
 from __future__ import unicode_literals
 from django.db import models
 from django.urls import reverse
+from taggit.managers import TaggableManager
+from django.contrib.auth.models import User
+from django.utils.text import slugify
 
 
-# from taggit.managers import TaggableManager
+
+from taggit.managers import TaggableManager
 
 class BoardLI(models.Model):
     name = models.CharField('NAME', max_length=100)
@@ -24,7 +28,7 @@ class Meta:
         return self.title
 
     def get_absolute_url(self):
-        return reverse('blog:post_detail', args=(self.slug,))
+        return reverse('board:post_detail', args=(self.slug,))
 
     def get_previous(self):
         return self.get_previous_by_modify_dt()
